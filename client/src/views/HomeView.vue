@@ -58,7 +58,7 @@ h1{
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 5px;
-    padding-top: 8px;
+    padding-top: 10px;
   }
   input:focus, input:focus{
     outline: none;
@@ -130,37 +130,41 @@ h1{
       <h1 class="text-center pt-5" style="color: white;">ScheduleFree</h1>
       <form @submit.prevent=""  class="">
        
-        <div class="mb-5 round py-3 text-center shadow-lg" style="background-transpatent;background-color: rgb(54, 48, 42);">
+        <div class="mb-5 round py-3 text-center shadow" style="background-transpatent;background-color: #072944">
           <input
             autocomplete="off"
             type="text"
-            class=" round inputField text-center"
+            class="my-3 round inputField text-center"
             id="name"
             placeholder="Task Name"
             style=""
             v-model="addTaskForm.name">
             
             <input
+            placeholder="Due date"
+            onfocus="(this.type='datetime-local')"
+            name="date"
             autocomplete="off"
-            type="datetime-local"
+            
             min="new Date()"
-            class=" round inputField text-center"
+            class="my-3 round inputField text-center"
             id="date"
             style=""
             v-model="addTaskForm.date">
   
-            <label for="Timeframe" class="text-center">Minumum time:</label>
-            <select v-model="addTaskForm.minTime" name="Timeframe" id="Timeframe" class="round inputField text-center">
+            <select v-model="addTaskForm.minTime" name="Timeframe" id="Timeframe" class="round my-3 inputField text-center">
+              <option value="" disabled selected>Select task length</option>
               <option value="30">30 Minutes</option>
               <option value="60">1 Hour</option>
               <option value="180">3 Hours</option>
               <option value="300">5 Hours</option>
               <option value="420">7 Hours</option>
               <option value="600">10 Hours</option>
+              <option value="900">15 hours</option>
             </select>
   
   
-            <button @click="handleAddSubmit" class="btn btn-primary inputField">
+            <button @click="handleAddSubmit" class="btn btn-primary inputField my-3 shadow-sm">
               Add Task
             </button>
         </div>
@@ -169,8 +173,8 @@ h1{
       
     </div>
     
-    <div style="height:50px; position:relative">
-      <button onclick = "window.location.href='http://localhost:5173/week';" class="center btn btn-primary shadow-lg">
+    <div style="height:50px; position:relative" >
+      <button onclick="window.location.href='http://localhost:5173/week';" class="center btn btn-primary shadow-lg">
         Generate Schedule
       </button>  
     </div>

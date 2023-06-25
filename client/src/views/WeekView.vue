@@ -3,6 +3,7 @@
     </div>
     <div class="weekly-schedule mt-3 px-3">
       <div class="header">
+        <button onclick="window.location.href='http://localhost:5173';" style="position: absolute; top:15px; left:15px" class="btn btn-primary">Back</button>
         <h2 class="text-white">Weekly Schedule</h2>
       </div>
       <div class="days">
