@@ -8,6 +8,15 @@ h1{
   font-family: "Trirong", serif;
 }
 
+.center{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 .spacer {
   height: 100vh;
   width: 100%;
@@ -166,9 +175,13 @@ h1{
       
     </div>
     
-    <button @click="handleAddSubmit" style="z-index: 2; width: 15%; margin-left:42.5%" class="btn btn-primary ">
-      Generate Schedule
-    </button>  
+    <div style="height:50px; position:relative">
+      <button class="center btn btn-primary shadow-lg">
+        Generate Schedule
+      </button>  
+    </div>
+    
+    
 
   </div>
   
@@ -218,16 +231,18 @@ export default {
       this.initForm();
     },
     handleAddSubmit() {
-      const payload = {
+      if (this.addTaskForm.name !='' && this.addTaskForm.minTime !='' && this.addTaskForm.date !='' && this.addTaskForm.priority !=''){
+        const payload = {
         name: this.addTaskForm.name,
         min: this.addTaskForm.minTime,
         due: this.addTaskForm.date,
         priority: this.addTaskForm.priority,
         id: 1,
       };
-      console.log(typeof(this.addTaskForm.date))
       this.addTask(payload);
       this.initForm();
+      }
+      
     },
     initForm() {
       this.addTaskForm.name = '';
