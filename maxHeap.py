@@ -1,5 +1,7 @@
 import sys
 import maxHeap
+import heapq
+
 
 class MaxHeap: 
     
@@ -32,3 +34,22 @@ class MaxHeap:
         if not self.isLeaf(pos): 
             if (self.Heap[pos] < self.Heap[self.leftChild(pos)] or self.Heap[pos] < self.Heap[self.rightChild(pos)]):
                  #swap w left child and heapify
+                 pass
+            
+
+
+# initialze heap #go trhough list and calculate the compare value
+#initialize the dict of the long tasks, using the id as a key
+#compare value = #daysaway/lenght  the smaller the compare value, the more urgent it is
+
+
+
+#for each
+heap = []
+t = (8, 9)
+heapq.heappush(heap, t)
+t = (5,6)
+heapq.heappush(heap, t)
+t = (9, 2)
+heapq.heappush(heap, t)
+print(heap)

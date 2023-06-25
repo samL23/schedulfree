@@ -18,7 +18,7 @@
   
   <style scoped>
   .event {
-    background-color: #007bff;
+    background-color: #3b306b;
     color: #fff;
     padding: 5px;
     margin-top: 5px;

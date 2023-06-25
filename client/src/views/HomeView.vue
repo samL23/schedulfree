@@ -156,15 +156,9 @@ h1{
               <option value="180">3 Hours</option>
               <option value="300">5 Hours</option>
               <option value="420">7 Hours</option>
+              <option value="600">10 Hours</option>
             </select>
   
-            <label for="priority">Task Priority:</label>
-            <select v-model="addTaskForm.priority" name="priority" id="priority" class="round inputField text-center">
-              <option value="1">Urgent</option>
-              <option value="2">Important</option>
-              <option value="3">Medium</option>
-              <option value="4">Low</option>
-            </select>
   
             <button @click="handleAddSubmit" class="btn btn-primary inputField">
               Add Task
@@ -176,7 +170,7 @@ h1{
     </div>
     
     <div style="height:50px; position:relative">
-      <button class="center btn btn-primary shadow-lg">
+      <button onclick = "window.location.href='http://localhost:5173/week';" class="center btn btn-primary shadow-lg">
         Generate Schedule
       </button>  
     </div>
@@ -198,7 +192,6 @@ export default {
         name: '',
         minTime: '',
         date: '',
-        priority: '',
       },
       tasks: [],
     };
@@ -231,13 +224,11 @@ export default {
       this.initForm();
     },
     handleAddSubmit() {
-      if (this.addTaskForm.name !='' && this.addTaskForm.minTime !='' && this.addTaskForm.date !='' && this.addTaskForm.priority !=''){
+      if (this.addTaskForm.name !='' && this.addTaskForm.minTime !='' && this.addTaskForm.date !=''){
         const payload = {
         name: this.addTaskForm.name,
         min: this.addTaskForm.minTime,
         due: this.addTaskForm.date,
-        priority: this.addTaskForm.priority,
-        id: 1,
       };
       this.addTask(payload);
       this.initForm();
